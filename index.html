@@ -1,0 +1,86 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Moderate Rain is a portfolio of projects designed by Lithium featuring design, textures, environments, 3D art, animations, and functional code. />
+  <meta name="keywords" content="3D, custom art, animation, blender, UE5, design, websites, UI, music" />
+  <title>Moderate Rain - Custom 3D Art & Animation & Map Design, CA</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <header class="hero">
+  <div class="hero-content">
+    <img src="images/rain_logo.png" alt="Moderate Rain Logo" class="logo" />
+    <div class="hero-text">
+      <p>My favorite kind of weather for creative inspiration.</p>
+      <p>I am always learning.<strong> Never give up</strong>.</p>
+    </div>
+  </div>
+</header>
+
+  <nav class="tab-nav">
+	<button class="tab-btn active" data-tab="drift">Drift</button>
+	<button class="tab-btn" data-tab="strata">Strata</button>
+    <button class="tab-btn" data-tab="pixel">Pixel eMotion</button>
+    <button class="tab-btn" data-tab="polygon">Polygon eMotion</button>
+    <button class="tab-btn" data-tab="shard">Shard</button>
+    <button class="tab-btn" data-tab="wave">Wave</button>
+  </nav>
+
+  <main>
+	<section id="drift" class="tab-content active">
+		<h2>Passion is fuel.</h2>
+	</section>
+	
+	<section id="strata" class="tab-content">
+		<h2>A record of structure.</h2>
+	</section>
+	
+    <section id="pixel" class="tab-content">
+      <h2>Elegance and composure.</h2>
+    </section>
+
+    <section id="polygon" class="tab-content">
+      <h2>The grace of life.</h2>
+    </section>
+
+    <section id="shard" class="tab-content">
+      <h2>Our beautiful world and energy.</h2>
+    </section>
+
+    <section id="wave" class="tab-content">
+      <h2>Sound, light, and vibrance.</h2>
+    </section>	
+  </main>
+
+  <footer>
+    <p>	Social:
+      <a href="https://linkedin.com/kristaghazaleh" target="_blank">LinkedIn</a>, 
+	  <a href="https://github.com/lithiumatics" target="_blank">GitHub</a>, 
+      <a href="https://www.instagram.com/01001100" target="_blank">Instagram</a>, 
+	  <a href="https://www.twitch.com/01001100" target="_blank">Twitch</a>,	  
+	  <a href="https://www.discord.com/moderaterain" target="_blank">Discord</a>
+    </p>
+     <p>&copy; 2026 Moderate Rain. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const buttons = document.querySelectorAll('.tab-btn');
+    const tabs = document.querySelectorAll('.tab-content');
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        buttons.forEach(btn => btn.classList.remove('active'));
+        tabs.forEach(tab => tab.classList.remove('active'));
+
+        button.classList.add('active');
+        document.getElementById(button.dataset.tab).classList.add('active');
+      });
+    });
+  </script>
+</body>
+
+</html>
