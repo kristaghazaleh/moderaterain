@@ -28,6 +28,23 @@ header.hero {
   border-radius: 50%;
   object-fit: cover;
 }
+/* keep existing .logo sizing and border-radius */
+.logo {
+  transition: transform 0.35s ease, filter 0.35s ease, opacity 0.35s ease;
+  will-change: transform, filter;
+}
+
+.logo-btn:hover .logo,
+.logo-btn:focus-visible .logo {
+  transform: translateY(-2px) scale(1.02);
+  filter: drop-shadow(0 0 12px rgba(241, 198, 212, 0.45)); /* soft pink glow consistent with your hover theme */
+  opacity: 0.95;
+}
+
+.logo-btn:active .logo {
+  transform: translateY(0) scale(0.99); /* subtle press feedback */
+}
+
 
 .hero-text {
   flex: 1;
@@ -49,6 +66,14 @@ h2 {
   text-align: center;
   margin: 20px;
 }
+
+.logo-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
 
 .cta-button {
   display: inline-block;
