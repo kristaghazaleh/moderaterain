@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Moderate Rain is a portfolio of projects designed by Lithium featuring design, textures, environments, 3D art, animations, and functional code. />
+  <meta name="description" content="Moderate Rain is a portfolio of projects designed by Lithium featuring design, textures, environments, 3D art, animations, and functional code." />
   <meta name="keywords" content="3D, custom art, animation, blender, UE5, design, websites, UI, music" />
   <title>Moderate Rain - Custom 3D Art & Animation & Map Design, CA</title>
   <link rel="stylesheet" href="styles.css" />
@@ -13,7 +13,9 @@
 <body>
   <header class="hero">
   <div class="hero-content">
-    <img src="images/rain_logo.png" alt="Moderate Rain Logo" class="logo" />
+    <button class="logo-btn" aria-label="Go to Drift">
+		<img src="images/rain_logo.png" alt="Moderate Rain Logo" class="logo" />
+	</button>
     <div class="hero-text">
       <p>My favorite kind of weather for creative inspiration.</p>
       <p>I am always learning.<strong> Never give up</strong>.</p>
@@ -68,19 +70,44 @@
   </footer>
 
   <script>
-    const buttons = document.querySelectorAll('.tab-btn');
-    const tabs = document.querySelectorAll('.tab-content');
+	  const buttons = document.querySelectorAll('.tab-btn');
+	  const tabs = document.querySelectorAll('.tab-content');
+	  const logoButton = document.querySelector('.logo-btn');
 
-    buttons.forEach(button => {
-      button.addEventListener('click', () => {
-        buttons.forEach(btn => btn.classList.remove('active'));
-        tabs.forEach(tab => tab.classList.remove('active'));
+	  function activateTab(tabName) {
+		buttons.forEach(btn => btn.classList.remove('active'));
+		tabs.forEach(tab => tab.classList.remove('active'));
 
-        button.classList.add('active');
-        document.getElementById(button.dataset.tab).classList.add('active');
-      });
-    });
-  </script>
+		const button = document.querySelector(`.tab-btn[data-tab="${tabName}"]`);
+		const tab = document.getElementById(tabName);
+
+		if (button && tab) {
+		  button.classList.add('active');
+		  tab.classList.add('active');
+		  history.replaceState(null, '', `#${tabName}`);
+		}
+	  }
+
+	  buttons.forEach(button => {
+		button.addEventListener('click', () => {
+		  activateTab(button.dataset.tab);
+		});
+	  });
+
+	  if (logoButton) {
+		logoButton.addEventListener('click', () => {
+		  activateTab('drift');
+		});
+	  }
+
+	  window.addEventListener('DOMContentLoaded', () => {
+		const hash = location.hash.replace('#', '');
+		if (hash && document.getElementById(hash)) {
+		  activateTab(hash);
+		}
+  });
+</script>
+
 </body>
 
 </html>
